@@ -59,7 +59,7 @@ var contacts = {
             exec(win, errorCB, "Contacts", "search", [fields, options]);
         }
     },
-    
+
     /**
      * This function picks contact from phone using contact picker UI
      * @returns new Contact object
@@ -72,6 +72,7 @@ var contacts = {
             // if Contacts.pickContact return instance of Contact object
             // don't create new Contact object, use current
             var contact = result instanceof Contact ? result : contacts.create(result);
+            console.log(contact);
             successCB(convertUtils.toCordovaFormat(contact));
         };
         exec(win, errorCB, "Contacts", "pickContact", []);
